@@ -66,10 +66,19 @@ export default function Proposals() {
   const [book, setBook]   = useState({ title: '', author: '', cat: '', why: '' })
   const [review, setReview] = useState({ name: '', text: '' })
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => { setLoading(false); setDone(true) }, 1000)
+    const data = tab === 0
+      ? { type: 'Proposition', title: book.title, author: book.author, category: book.cat, why: book.why }
+      : { type: 'Avis', name: review.name, rating, review: review.text }
+    await fetch('https://formspree.io/f/xojyvrea', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+    })
+    setLoading(false)
+    setDone(true)
   }
 
   const inputClass = `w-full bg-white dark:bg-dark-800 border border-cream-400/80 dark:border-dark-600/50
