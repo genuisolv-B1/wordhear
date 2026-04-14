@@ -32,10 +32,10 @@ const copy = {
 }
 
 const audioBooks = [
-  { id: 1, title: "L'Art de la Négociation",      author: 'Hassan Benkirane', duration: '6h 40min', narrator: 'Karim Lahlou',      cat: 'Business',  price: 12.99, spineColor: '#3B2680', progress: 0  },
-  { id: 2, title: 'Mille et Une Nuits Revisitées', author: 'Sophia Tahiri',    duration: '9h 15min', narrator: 'Leila Benali',      cat: 'Histoires', price: 14.99, spineColor: '#6B2D1A', progress: 35 },
-  { id: 3, title: 'Psychologie de la Réussite',    author: 'Dr. Amine Chraibi',duration: '5h 20min', narrator: 'Mohammed El Fassi', cat: 'Éducatif',  price: 11.99, spineColor: '#1B4332', progress: 0  },
-  { id: 4, title: 'Le Grand Voyage',               author: 'Karim Nassiri',    duration: '7h 50min', narrator: 'Sara Alaoui',       cat: 'Romans',    price: 13.99, spineColor: '#0D2B4E', progress: 0  },
+  { id: 1, title: "L'Alchimiste",       author: 'Paulo Coelho',      duration: '4h 15min', narrator: 'Voix professionnelle', cat: 'Romans',    price: 79, spineColor: '#8B6914', progress: 0  },
+  { id: 2, title: 'Atomic Habits',      author: 'James Clear',       duration: '5h 35min', narrator: 'Voix professionnelle', cat: 'Business',  price: 79, spineColor: '#C4500A', progress: 42 },
+  { id: 3, title: 'Start With Why',     author: 'Simon Sinek',       duration: '7h 10min', narrator: 'Voix professionnelle', cat: 'Business',  price: 75, spineColor: '#1B4332', progress: 0  },
+  { id: 4, title: 'Sapiens',            author: 'Yuval Noah Harari', duration: '15h 18min',narrator: 'Voix professionnelle', cat: 'Éducatif',  price: 89, spineColor: '#0D2B4E', progress: 0  },
 ]
 
 const bars = [35, 60, 45, 80, 40, 70, 55, 90, 38, 65, 50, 75, 42, 85, 58, 62, 70, 44, 80, 52]
@@ -70,12 +70,12 @@ export default function AudioBooks() {
           <div className="lg:w-72 flex-shrink-0 bg-ink-800 dark:bg-dark-900 border border-ink-700/50 dark:border-dark-800/80 rounded-2xl p-5">
             <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-ink-400 mb-3">{t.nowPlaying}</p>
             <div className="flex items-start gap-3 mb-5">
-              <div className="w-12 h-14 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: '#6B2D1A' }}>
+              <div className="w-12 h-14 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: '#C4500A' }}>
                 <Headphones className="w-5 h-5 text-cream-200" />
               </div>
               <div>
-                <p className="font-serif font-semibold text-cream-100 text-sm leading-snug">Mille et Une Nuits Revisitées</p>
-                <p className="text-xs text-ink-400 mt-0.5">Sophia Tahiri</p>
+                <p className="font-serif font-semibold text-cream-100 text-sm leading-snug">Atomic Habits</p>
+                <p className="text-xs text-ink-400 mt-0.5">James Clear</p>
               </div>
             </div>
 
@@ -133,7 +133,7 @@ export default function AudioBooks() {
                 )}
 
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-ink-700/40 dark:border-dark-800/80">
-                  <span className="font-serif text-lg font-bold text-cream-100">{book.price.toFixed(2)}€</span>
+                  <span className="font-serif text-lg font-bold text-cream-100">{book.price} MAD</span>
                   <button className="flex items-center gap-1.5 text-xs font-semibold text-forest-400 hover:text-forest-300 transition-colors">
                     {t.buy} <ArrowRight className="w-3 h-3" />
                   </button>

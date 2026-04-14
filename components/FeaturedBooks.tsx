@@ -27,34 +27,34 @@ const copy = {
 
 const books = [
   {
-    id: 1, title: "L'Alchimiste du Temps",      author: 'Yasmine Kadiri',  price: 8.99,
-    rating: 4.9, reviews: 342, catFR: 'Romans',    catEN: 'Novels',
+    id: 1, title: "L'Alchimiste",                 author: 'Paulo Coelho',              price: 49,
+    rating: 4.9, reviews: 1284, catFR: 'Romans',    catEN: 'Novels',
+    badge: { FR: 'Bestseller', EN: 'Bestseller' }, spineColor: '#8B6914', format: 'PDF + EPUB',
+  },
+  {
+    id: 2, title: 'Atomic Habits',                author: 'James Clear',               price: 59,
+    rating: 4.9, reviews: 2341, catFR: 'Business',  catEN: 'Business',
+    badge: { FR: 'Top vente', EN: 'Top seller' },  spineColor: '#C4500A', format: 'PDF + EPUB',
+  },
+  {
+    id: 3, title: 'Sapiens',                      author: 'Yuval Noah Harari',         price: 69,
+    rating: 4.8, reviews: 987,  catFR: 'Éducatif', catEN: 'Educational',
+    badge: { FR: 'Nouveau', EN: 'New' },           spineColor: '#0D2B4E', format: 'PDF + EPUB',
+  },
+  {
+    id: 4, title: 'Rich Dad Poor Dad',            author: 'Robert Kiyosaki',           price: 59,
+    rating: 4.8, reviews: 1876, catFR: 'Business',  catEN: 'Business',
     badge: { FR: 'Bestseller', EN: 'Bestseller' }, spineColor: '#1B4332', format: 'PDF + EPUB',
   },
   {
-    id: 2, title: 'Penser Pour Réussir',          author: 'Mehdi Alaoui',   price: 11.99,
-    rating: 4.8, reviews: 218, catFR: 'Business',  catEN: 'Business',
-    badge: { FR: 'Nouveau', EN: 'New' },           spineColor: '#3B2680', format: 'PDF + EPUB',
+    id: 5, title: 'Le Petit Prince',              author: 'Antoine de Saint-Exupéry',  price: 39,
+    rating: 4.9, reviews: 3210, catFR: 'Romans',    catEN: 'Novels',
+    badge: { FR: 'Coup de cœur', EN: 'Staff pick' }, spineColor: '#1B4F8A', format: 'PDF + EPUB',
   },
   {
-    id: 3, title: 'Le Maroc des Sultans',          author: 'Fatima Benali',  price: 7.99,
-    rating: 4.7, reviews: 156, catFR: 'Histoires', catEN: 'Stories',
-    badge: null,                                   spineColor: '#6B2D1A', format: 'PDF',
-  },
-  {
-    id: 4, title: "Maîtriser l'Arabe Moderne",    author: 'Dr. Omar Fassi', price: 13.99,
-    rating: 4.9, reviews: 445, catFR: 'Éducatif', catEN: 'Educational',
-    badge: { FR: 'Top vente', EN: 'Top seller' },  spineColor: '#0D2B4E', format: 'PDF + Audio',
-  },
-  {
-    id: 5, title: "L'Empire du Digital",          author: 'Nadia Chraibi',  price: 9.99,
-    rating: 4.6, reviews: 189, catFR: 'Business',  catEN: 'Business',
-    badge: null,                                   spineColor: '#2D2D2D', format: 'PDF + EPUB',
-  },
-  {
-    id: 6, title: "Contes de l'Atlas",            author: 'Ibrahim Toufiq', price: 6.99,
-    rating: 4.8, reviews: 267, catFR: 'Histoires', catEN: 'Stories',
-    badge: { FR: 'Coup de cœur', EN: 'Staff pick' }, spineColor: '#7A5C14', format: 'PDF',
+    id: 6, title: 'Thinking, Fast and Slow',      author: 'Daniel Kahneman',           price: 65,
+    rating: 4.7, reviews: 743,  catFR: 'Éducatif', catEN: 'Educational',
+    badge: null,                                   spineColor: '#3B2680', format: 'PDF + EPUB',
   },
 ]
 
@@ -160,7 +160,7 @@ export default function FeaturedBooks() {
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                  <span className="font-serif text-xl font-bold text-ink-900 dark:text-cream-100">{book.price.toFixed(2)}€</span>
+                  <span className="font-serif text-xl font-bold text-ink-900 dark:text-cream-100">{book.price} MAD</span>
                   <button className="text-xs font-bold bg-forest-800 text-cream-100 px-4 py-2 rounded-full hover:bg-forest-900 dark:hover:bg-forest-700 transition-colors">
                     {t.buy}
                   </button>
