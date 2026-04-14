@@ -7,6 +7,7 @@ import AudioBooks from '@/components/AudioBooks'
 import WhyUs from '@/components/WhyUs'
 import Testimonials from '@/components/Testimonials'
 import Newsletter from '@/components/Newsletter'
+import Proposals from '@/components/Proposals'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
@@ -22,6 +23,7 @@ export default function Home() {
       <WhyUs />
       <Testimonials />
       <Newsletter />
+      <Proposals />
       <Footer />
       <WhatsAppButton />
     </main>
