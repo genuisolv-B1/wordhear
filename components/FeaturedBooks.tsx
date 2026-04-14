@@ -27,34 +27,52 @@ const copy = {
 
 const books = [
   {
-    id: 1, title: "L'Alchimiste",                 author: 'Paulo Coelho',              price: 49,
+    id: 1, title: 'Madame Bovary',                author: 'Gustave Flaubert',          price: 3.99, currency: '€',
+    rating: 4.8, reviews: 2140, catFR: 'Romans',    catEN: 'Novels',
+    badge: { FR: 'Disponible', EN: 'Available' },  spineColor: '#6B2D1A', format: 'EPUB',
+    descFR: 'Le chef-d\'œuvre de Flaubert — Emma Bovary, femme d\'un médecin de campagne, rêve d\'une vie romantique et passionnée.',
+    descEN: 'Flaubert\'s masterpiece — Emma Bovary, a country doctor\'s wife, dreams of a passionate and romantic life.',
+    link: 'https://payhip.com/b/YbKSh',
+  },
+  {
+    id: 2, title: "L'Alchimiste",                 author: 'Paulo Coelho',              price: 49, currency: 'MAD',
     rating: 4.9, reviews: 1284, catFR: 'Romans',    catEN: 'Novels',
     badge: { FR: 'Bestseller', EN: 'Bestseller' }, spineColor: '#8B6914', format: 'PDF + EPUB',
+    descFR: 'Un jeune berger andalou part en quête de son trésor personnel. Un voyage initiatique vers la réalisation de ses rêves.',
+    descEN: 'A young Andalusian shepherd sets out on a quest for his personal treasure. A journey of self-discovery.',
+    link: null,
   },
   {
-    id: 2, title: 'Atomic Habits',                author: 'James Clear',               price: 59,
+    id: 3, title: 'Atomic Habits',                author: 'James Clear',               price: 59, currency: 'MAD',
     rating: 4.9, reviews: 2341, catFR: 'Business',  catEN: 'Business',
     badge: { FR: 'Top vente', EN: 'Top seller' },  spineColor: '#C4500A', format: 'PDF + EPUB',
+    descFR: 'Comment construire de bonnes habitudes et éliminer les mauvaises. La méthode prouvée pour transformer votre vie.',
+    descEN: 'How to build good habits and break bad ones. The proven method to transform your life 1% at a time.',
+    link: null,
   },
   {
-    id: 3, title: 'Sapiens',                      author: 'Yuval Noah Harari',         price: 69,
+    id: 4, title: 'Sapiens',                      author: 'Yuval Noah Harari',         price: 69, currency: 'MAD',
     rating: 4.8, reviews: 987,  catFR: 'Éducatif', catEN: 'Educational',
     badge: { FR: 'Nouveau', EN: 'New' },           spineColor: '#0D2B4E', format: 'PDF + EPUB',
+    descFR: 'Une brève histoire de l\'humanité — comment Homo Sapiens a conquis le monde et façonné notre civilisation.',
+    descEN: 'A brief history of humankind — how Homo Sapiens conquered the world and shaped our civilization.',
+    link: null,
   },
   {
-    id: 4, title: 'Rich Dad Poor Dad',            author: 'Robert Kiyosaki',           price: 59,
+    id: 5, title: 'Rich Dad Poor Dad',            author: 'Robert Kiyosaki',           price: 59, currency: 'MAD',
     rating: 4.8, reviews: 1876, catFR: 'Business',  catEN: 'Business',
     badge: { FR: 'Bestseller', EN: 'Bestseller' }, spineColor: '#1B4332', format: 'PDF + EPUB',
+    descFR: 'Ce que les riches enseignent à leurs enfants sur l\'argent — et que les pauvres et la classe moyenne ne font pas.',
+    descEN: 'What the rich teach their kids about money — that the poor and middle class do not.',
+    link: null,
   },
   {
-    id: 5, title: 'Le Petit Prince',              author: 'Antoine de Saint-Exupéry',  price: 39,
-    rating: 4.9, reviews: 3210, catFR: 'Romans',    catEN: 'Novels',
-    badge: { FR: 'Coup de cœur', EN: 'Staff pick' }, spineColor: '#1B4F8A', format: 'PDF + EPUB',
-  },
-  {
-    id: 6, title: 'Thinking, Fast and Slow',      author: 'Daniel Kahneman',           price: 65,
+    id: 6, title: 'Thinking, Fast and Slow',      author: 'Daniel Kahneman',           price: 65, currency: 'MAD',
     rating: 4.7, reviews: 743,  catFR: 'Éducatif', catEN: 'Educational',
     badge: null,                                   spineColor: '#3B2680', format: 'PDF + EPUB',
+    descFR: 'Deux systèmes qui guident notre façon de penser — le rapide, intuitif et émotionnel, et le lent, délibéré et logique.',
+    descEN: 'Two systems that drive the way we think — fast, intuitive and emotional vs. slow, deliberate and logical.',
+    link: null,
   },
 ]
 
@@ -145,6 +163,10 @@ export default function FeaturedBooks() {
                   <p className="text-xs text-ink-500 dark:text-dark-400 mt-0.5">{book.author}</p>
                 </div>
 
+                <p className="text-xs text-ink-500 dark:text-dark-400 leading-relaxed line-clamp-2">
+                  {lang === 'FR' ? book.descFR : book.descEN}
+                </p>
+
                 <div className="flex items-center gap-1.5">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -160,10 +182,16 @@ export default function FeaturedBooks() {
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                  <span className="font-serif text-xl font-bold text-ink-900 dark:text-cream-100">{book.price} MAD</span>
-                  <button className="text-xs font-bold bg-forest-800 text-cream-100 px-4 py-2 rounded-full hover:bg-forest-900 dark:hover:bg-forest-700 transition-colors">
-                    {t.buy}
-                  </button>
+                  <span className="font-serif text-xl font-bold text-ink-900 dark:text-cream-100">{book.price}{book.currency}</span>
+                  {book.link ? (
+                    <a href={book.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold bg-forest-800 text-cream-100 px-4 py-2 rounded-full hover:bg-forest-900 dark:hover:bg-forest-700 transition-colors">
+                      {t.buy}
+                    </a>
+                  ) : (
+                    <button className="text-xs font-bold bg-cream-300 dark:bg-dark-700 text-ink-400 dark:text-dark-500 px-4 py-2 rounded-full cursor-not-allowed">
+                      {lang === 'FR' ? 'Bientôt' : 'Coming soon'}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
