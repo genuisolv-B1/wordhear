@@ -146,9 +146,10 @@ export default function BlogPage() {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <main className="min-h-screen bg-cream-100 dark:bg-dark-850 transition-colors duration-300">
+    <>
       <Navbar />
 
+      <div className="min-h-screen bg-cream-100 dark:bg-dark-850 transition-colors duration-300">
       {/* Header */}
       <div className="bg-ink-900 dark:bg-dark-950 text-cream-100 pt-28 pb-20 px-5 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
@@ -253,8 +254,9 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+      </div>
       <Footer />
       <WhatsAppButton />
-    </main>
+    </>
   )
 }
