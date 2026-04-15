@@ -17,12 +17,13 @@ const navLinks = {
   FR: [
     { label: 'Livres',      href: '#catalogue' },
     { label: 'Audiolivres', href: '#audio'     },
-    { label: 'Auteurs',     href: '#authors'   },
+    { label: 'Blog',        href: '/blog'      },
     { label: 'À propos',    href: '#about'     },
   ],
   EN: [
     { label: 'Books',      href: '#catalogue' },
     { label: 'Audiobooks', href: '#audio'     },
+    { label: 'Blog',       href: '/blog'      },
     { label: 'Authors',    href: '#authors'   },
     { label: 'About',      href: '#about'     },
   ],
