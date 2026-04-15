@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { ArrowLeft, Clock, BookOpen, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useApp } from '@/contexts/AppContext'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 const articles = [
   {
@@ -144,14 +147,11 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-cream-100 dark:bg-dark-850 transition-colors duration-300">
+      <Navbar />
 
       {/* Header */}
-      <div className="bg-ink-900 dark:bg-dark-950 text-cream-100 pt-24 pb-20 px-5 sm:px-8 lg:px-12">
+      <div className="bg-ink-900 dark:bg-dark-950 text-cream-100 pt-28 pb-20 px-5 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <Link href="/" className="inline-flex items-center gap-2 text-ink-400 hover:text-cream-200 text-sm font-medium mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            {t.back}
-          </Link>
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-forest-400">
               <span className="w-6 h-px bg-forest-400 inline-block" />
@@ -253,6 +253,8 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+      <Footer />
+      <WhatsAppButton />
     </main>
   )
 }
