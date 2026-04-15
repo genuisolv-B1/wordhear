@@ -1,8 +1,17 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { ShoppingBag, Menu, X, Sun, Moon, Search } from 'lucide-react'
+import { ShoppingBag, Menu, X, Sun, Moon, Search, BookOpen } from 'lucide-react'
 import { useApp, type Lang } from '@/contexts/AppContext'
+
+const allBooks = [
+  { title: 'Madame Bovary',          author: 'Gustave Flaubert',         link: 'https://payhip.com/b/YbKSh', price: '3.99€' },
+  { title: "L'Alchimiste",           author: 'Paulo Coelho',              link: null, price: '49 MAD' },
+  { title: 'Atomic Habits',          author: 'James Clear',               link: null, price: '59 MAD' },
+  { title: 'Sapiens',                author: 'Yuval Noah Harari',         link: null, price: '69 MAD' },
+  { title: 'Rich Dad Poor Dad',      author: 'Robert Kiyosaki',           link: null, price: '59 MAD' },
+  { title: 'Thinking, Fast and Slow',author: 'Daniel Kahneman',           link: null, price: '65 MAD' },
+]
 
 const navLinks = {
   FR: [
@@ -89,22 +98,54 @@ export default function Navbar() {
             </div>
 
             {/* Search */}
-            <div className="hidden sm:flex items-center">
+            <div className="hidden sm:flex items-center relative">
               {searchOpen ? (
-                <div className="flex items-center gap-2 bg-cream-200/80 dark:bg-dark-800 border border-cream-400/60 dark:border-dark-600/50 rounded-full px-3 py-1.5">
-                  <Search className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 flex-shrink-0" />
-                  <input
-                    ref={searchRef}
-                    type="text"
-                    value={searchQuery}
-                    onChange={e => setSearchQuery(e.target.value)}
-                    placeholder={lang === 'FR' ? 'Rechercher un livre...' : 'Search a book...'}
-                    className="bg-transparent text-sm text-ink-900 dark:text-cream-100 placeholder-ink-400 dark:placeholder-dark-500 outline-none w-40"
-                    onBlur={() => { if (!searchQuery) setSearchOpen(false) }}
-                  />
-                  <button onClick={() => { setSearchOpen(false); setSearchQuery('') }}>
-                    <X className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 hover:text-ink-700 dark:hover:text-cream-300" />
-                  </button>
+                <div className="relative">
+                  <div className="flex items-center gap-2 bg-cream-200/80 dark:bg-dark-800 border border-cream-400/60 dark:border-dark-600/50 rounded-full px-3 py-1.5">
+                    <Search className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 flex-shrink-0" />
+                    <input
+                      ref={searchRef}
+                      type="text"
+                      value={searchQuery}
+                      onChange={e => setSearchQuery(e.target.value)}
+                      placeholder={lang === 'FR' ? 'Rechercher un livre...' : 'Search a book...'}
+                      className="bg-transparent text-sm text-ink-900 dark:text-cream-100 placeholder-ink-400 dark:placeholder-dark-500 outline-none w-44"
+                    />
+                    <button onClick={() => { setSearchOpen(false); setSearchQuery('') }}>
+                      <X className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 hover:text-ink-700 dark:hover:text-cream-300" />
+                    </button>
+                  </div>
+                  {searchQuery.length > 0 && (() => {
+                    const results = allBooks.filter(b =>
+                      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                      b.author.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    return (
+                      <div className="absolute top-full mt-2 left-0 right-0 bg-white dark:bg-dark-800 border border-cream-400/60 dark:border-dark-700/50 rounded-2xl shadow-xl overflow-hidden z-50 min-w-[280px]">
+                        {results.length === 0 ? (
+                          <p className="text-sm text-ink-400 dark:text-dark-500 px-4 py-3">
+                            {lang === 'FR' ? 'Aucun résultat' : 'No results'}
+                          </p>
+                        ) : results.map((b, i) => (
+                          <a
+                            key={i}
+                            href={b.link ?? '#catalogue'}
+                            target={b.link ? '_blank' : undefined}
+                            rel={b.link ? 'noopener noreferrer' : undefined}
+                            onClick={() => { setSearchQuery(''); setSearchOpen(false) }}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-cream-100 dark:hover:bg-dark-700 transition-colors"
+                          >
+                            <BookOpen className="w-4 h-4 text-forest-700 dark:text-forest-500 flex-shrink-0" />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-semibold text-ink-900 dark:text-cream-100 truncate">{b.title}</p>
+                              <p className="text-xs text-ink-400 dark:text-dark-500">{b.author}</p>
+                            </div>
+                            <span className="text-xs font-bold text-forest-700 dark:text-forest-400 flex-shrink-0">{b.price}</span>
+                          </a>
+                        ))}
+                      </div>
+                    )
+                  })()}
                 </div>
               ) : (
                 <button
