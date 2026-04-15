@@ -40,7 +40,7 @@ export default function Footer() {
   const linkKeys = Object.keys(t.links) as (keyof typeof t.links)[]
 
   return (
-    <footer className="bg-ink-900 dark:bg-dark-950 text-cream-200 transition-colors duration-300">
+    <footer id="contact" className="bg-ink-900 dark:bg-dark-950 text-cream-200 transition-colors duration-300">
 
       {/* Delivery strip */}
       <div className="border-b border-ink-800/60 dark:border-dark-800/80 py-4">

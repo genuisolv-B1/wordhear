@@ -87,7 +87,7 @@ export default function Proposals() {
     focus:border-forest-800/40 transition-all`
 
   return (
-    <section className="py-24 sm:py-32 bg-cream-100 dark:bg-dark-850 transition-colors duration-300">
+    <section id="proposals" className="py-24 sm:py-32 bg-cream-100 dark:bg-dark-850 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Header */}
