@@ -5,7 +5,7 @@ import { useApp } from '@/contexts/AppContext'
 
 const copy = {
   FR: {
-    desc:       'La librairie numérique premium pour le Maroc et l\'Europe. Livres triés sur le volet, téléchargement immédiat, prix justes.',
+    desc:       'La librairie numérique premium. Livres triés sur le volet, téléchargement immédiat, prix justes.',
     deliveryLbl:'Téléchargement immédiat vers :',
     links: {
       Catalogue:  ['Romans', 'Éducatif', 'Business', 'Histoires', 'Audiolivres', 'Nouveautés'],
@@ -18,7 +18,7 @@ const copy = {
     terms:   'CGV',
   },
   EN: {
-    desc:       'The premier digital bookstore for Morocco and Europe. Curated books, instant download, fair prices.',
+    desc:       'The premier digital bookstore. Curated books, instant download, fair prices worldwide.',
     deliveryLbl:'Instant delivery to:',
     links: {
       Catalogue: ['Novels', 'Educational', 'Business', 'Stories', 'Audiobooks', 'New releases'],
@@ -32,7 +32,7 @@ const copy = {
   },
 }
 
-const zones = ['🇲🇦 Maroc', '🇫🇷 France', '🇧🇪 Belgique', '🇨🇭 Suisse', '🇩🇪 Allemagne', '🇳🇱 Pays-Bas', '🌍 +20 pays']
+const zones = ['🇫🇷 France', '🇧🇪 Belgique', '🇨🇭 Suisse', '🇩🇪 Allemagne', '🇳🇱 Pays-Bas', '🇬🇧 UK', '🇺🇸 USA', '🌍 +40 pays']
 
 export default function Footer() {
   const { lang } = useApp()

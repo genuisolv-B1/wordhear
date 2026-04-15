@@ -5,11 +5,11 @@ import { useApp } from '@/contexts/AppContext'
 
 const copy = {
   FR: {
-    tag:  'Maroc · France · Littérature',
+    tag:  'Littérature · Livres · Audiolivres',
     l1:   'Lisez.',
     l2:   'Écoutez.',
     l3:   'Découvrez.',
-    sub:  "La librairie numérique premium pour lecteurs du Maroc et d'Europe. Téléchargement immédiat.",
+    sub:  "La librairie numérique premium. Des milliers de titres en téléchargement immédiat.",
     cta1: 'Voir le catalogue',
     cta2: 'Écouter un extrait',
     stats: [
@@ -21,11 +21,11 @@ const copy = {
     remaining:  'restants',
   },
   EN: {
-    tag:  'Morocco · France · Literature',
+    tag:  'Literature · Books · Audiobooks',
     l1:   'Read.',
     l2:   'Listen.',
     l3:   'Discover.',
-    sub:  'The premier digital bookstore for Morocco and Europe. Instant download.',
+    sub:  'The premier digital bookstore. Thousands of titles available for instant download.',
     cta1: 'Browse Books',
     cta2: 'Try Audiobooks',
     stats: [

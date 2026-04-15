@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { ShoppingBag, Menu, X, Sun, Moon } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { ShoppingBag, Menu, X, Sun, Moon, Search } from 'lucide-react'
 import { useApp, type Lang } from '@/contexts/AppContext'
 
 const navLinks = {
@@ -21,8 +21,11 @@ const navLinks = {
 
 export default function Navbar() {
   const { lang, setLang, theme, toggleTheme } = useApp()
-  const [scrolled,  setScrolled] = useState(false)
-  const [menuOpen,  setMenuOpen] = useState(false)
+  const [scrolled,    setScrolled]    = useState(false)
+  const [menuOpen,    setMenuOpen]    = useState(false)
+  const [searchOpen,  setSearchOpen]  = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
@@ -83,6 +86,35 @@ export default function Navbar() {
                   {l}
                 </button>
               ))}
+            </div>
+
+            {/* Search */}
+            <div className="hidden sm:flex items-center">
+              {searchOpen ? (
+                <div className="flex items-center gap-2 bg-cream-200/80 dark:bg-dark-800 border border-cream-400/60 dark:border-dark-600/50 rounded-full px-3 py-1.5">
+                  <Search className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 flex-shrink-0" />
+                  <input
+                    ref={searchRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    placeholder={lang === 'FR' ? 'Rechercher un livre...' : 'Search a book...'}
+                    className="bg-transparent text-sm text-ink-900 dark:text-cream-100 placeholder-ink-400 dark:placeholder-dark-500 outline-none w-40"
+                    onBlur={() => { if (!searchQuery) setSearchOpen(false) }}
+                  />
+                  <button onClick={() => { setSearchOpen(false); setSearchQuery('') }}>
+                    <X className="w-3.5 h-3.5 text-ink-400 dark:text-dark-500 hover:text-ink-700 dark:hover:text-cream-300" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setSearchOpen(true); setTimeout(() => searchRef.current?.focus(), 50) }}
+                  className="p-2.5 text-ink-600 dark:text-cream-400 hover:text-ink-900 dark:hover:text-cream-100 hover:bg-cream-300/50 dark:hover:bg-dark-800 rounded-full transition-all duration-200"
+                  aria-label="Search"
+                >
+                  <Search className="w-[18px] h-[18px]" />
+                </button>
+              )}
             </div>
 
             {/* Dark mode toggle */}

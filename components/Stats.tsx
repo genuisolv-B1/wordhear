@@ -7,13 +7,13 @@ const copy = {
     { value: '500+',    label: 'Titres disponibles'  },
     { value: '12 000+', label: 'Lecteurs actifs'     },
     { value: '4.9 / 5', label: 'Note moyenne'        },
-    { value: '2',       label: 'Pays desservis', sub: 'Maroc & Europe' },
+    { value: '50+',     label: 'Pays desservis', sub: 'Livraison mondiale' },
   ],
   EN: [
     { value: '500+',    label: 'Titles available'    },
     { value: '12,000+', label: 'Active readers'      },
     { value: '4.9 / 5', label: 'Average rating'      },
-    { value: '2',       label: 'Countries served', sub: 'Morocco & Europe' },
+    { value: '50+',     label: 'Countries served', sub: 'Worldwide delivery' },
   ],
 }
 
