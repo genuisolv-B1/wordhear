@@ -109,7 +109,7 @@ export default function Footer() {
       {/* Bottom */}
       <div className="border-t border-ink-800/60 dark:border-dark-800/80">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500 dark:text-dark-600">
-          <p>© 2025 WordHear. {t.rights}</p>
+          <p>© 2025 WordHear. {t.rights} · <span className="text-ink-600 dark:text-dark-500">Powered by Genuisolv</span></p>
           <div className="flex items-center gap-4">
             {[t.legal, t.privacy, t.terms].map(l => (
               <a key={l} href="#" className="hover:text-ink-300 dark:hover:text-dark-400 transition-colors">{l}</a>
