@@ -4,6 +4,7 @@ import Stats from '@/components/Stats'
 import Categories from '@/components/Categories'
 import FeaturedBooks from '@/components/FeaturedBooks'
 import AudioBooks from '@/components/AudioBooks'
+import HowItWorks from '@/components/HowItWorks'
 import WhyUs from '@/components/WhyUs'
 import Testimonials from '@/components/Testimonials'
 import Newsletter from '@/components/Newsletter'
@@ -20,6 +21,7 @@ export default function Home() {
       <Categories />
       <FeaturedBooks />
       <AudioBooks />
+      <HowItWorks />
       <WhyUs />
       <Testimonials />
       <Newsletter />
