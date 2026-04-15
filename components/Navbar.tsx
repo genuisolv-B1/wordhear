@@ -46,13 +46,7 @@ export default function Navbar() {
   const links = navLinks[lang]
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-cream-100/95 dark:bg-dark-850/95 backdrop-blur-md border-b border-cream-400/60 dark:border-dark-700/50 shadow-sm'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 inset-x-0 z-50 bg-cream-100/95 dark:bg-dark-850/95 backdrop-blur-md border-b border-cream-400/60 dark:border-dark-700/50 shadow-sm transition-colors duration-300">
       <nav className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
 
